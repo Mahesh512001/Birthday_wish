@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday Anjali Bhande</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+<div id="bgphotos" aria-hidden="true"></div>
+<canvas id="confetti"></canvas>
+<div id="sky"></div>
+
+<!-- Scene 1: gift -->
+<section id="gate" class="scene">
+  <p class="small">Anjali, there is something here for you</p>
+  <button id="giftBtn" class="gift" aria-label="Open your gift">
+    <span class="lid"></span><span class="box"></span><span class="ribbon"></span>
+  </button>
+  <p class="small pulse">Tap the gift</p>
+</section>
+
+<main id="main" hidden>
+
+  <!-- Scene 2: hero -->
+  <section class="scene hero">
+    <p class="small">Today belongs to</p>
+    <h1><span id="typed"></span><span class="caret"></span></h1>
+    <p class="big">Happy Birthday</p>
+    <p class="wish" id="heroWish">May this year love you as generously as you love everyone around you.</p>
+    <a href="#gallery" class="down" aria-label="Scroll down">&#8595;</a>
+  </section>
+
+  <!-- Scene 3: gallery -->
+  <section id="gallery" class="scene">
+    <h2>Moments with you</h2>
+    <div class="slider" id="slider">
+      <div class="track" id="track">
+        <!-- Slides (image1 ... image23) are created automatically by script.js -->
+      </div>
+      <button class="nav prev" id="prev" aria-label="Previous photo">&#8249;</button>
+      <button class="nav next" id="next" aria-label="Next photo">&#8250;</button>
+    </div>
+    <div class="dots" id="dots"></div>
+  </section>
+
+  <!-- Scene 4: letter -->
+  <section class="scene">
+    <h2>A letter for you</h2>
+    <div class="letter">
+      <p>Dear Anjali,</p>
+      <p>Today the world celebrates someone who makes ordinary days feel special. Your warmth, your laughter and your quiet strength have made a difference to everyone lucky enough to know you, and I am grateful to be one of them.</p>
+      <p>On your birthday, my wish is simple. May every goal you have been working toward finally find its moment, may your days be filled with peace and good health, and may the people around you love you as deeply as you deserve.</p>
+      <p>Thank you for every memory, every laugh, and every time you were there when it mattered. Never stop being exactly who you are.</p>
+      <p><strong>Happy Birthday, Anjali.</strong></p>
+      <p class="sign">With love and best wishes,<br>Your friend</p>
+    </div>
+  </section>
+
+  <!-- Scene 5: cake -->
+  <section class="scene" id="cakeScene">
+    <h2>Make a wish</h2>
+    <p class="small">Tap each candle to blow it out</p>
+    <div class="cake">
+      <div class="candles">
+        <button class="candle" aria-label="Candle 1"><i class="flame"></i></button>
+        <button class="candle" aria-label="Candle 2"><i class="flame"></i></button>
+        <button class="candle" aria-label="Candle 3"><i class="flame"></i></button>
+        <button class="candle" aria-label="Candle 4"><i class="flame"></i></button>
+        <button class="candle" aria-label="Candle 5"><i class="flame"></i></button>
+      </div>
+      <div class="tier t1"></div>
+      <div class="tier t2"></div>
+      <div class="plate"></div>
+    </div>
+    <p class="final" id="final" hidden>May every wish you made tonight come true. Happy Birthday, Anjali!</p>
+    <button class="again" id="again" hidden>Celebrate again</button>
+  </section>
+
+  <!-- Scene 6: her wish (sends you a notification) -->
+  <section class="scene" id="wishScene">
+    <h2>What would you love?</h2>
+    <p class="small">Pick as many as you like, then send your wish</p>
+    <p class="lockmsg" id="lockMsg"></p>
+    <div class="choices" id="choices"></div>
+    <textarea id="note" rows="3" maxlength="200" placeholder="Anything else you wish for? (optional)"></textarea>
+    <button class="again solid" id="sendWish">Send my wish</button>
+    <p class="status" id="wishStatus" role="status"></p>
+    <div class="chat" id="chat" hidden></div>
+  </section>
+
+</main>
+<script src="src/script.js"></script>
+</body>
+</html>

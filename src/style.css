@@ -1,0 +1,141 @@
+:root{
+  --plum:#2a0b3d; --plum2:#4a1450; --rose:#ff5d8f; --gold:#ffd27a; --ivory:#fff6ec;
+  --script:'Great Vibes','Brush Script MT',cursive;
+  --serif:'Lora',Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--serif);color:var(--ivory);line-height:1.7;overflow-x:hidden;
+  background:radial-gradient(ellipse at 20% 0%,var(--plum2),transparent 60%),
+             radial-gradient(ellipse at 90% 100%,#7a1f4d,transparent 55%),var(--plum);
+  background-attachment:fixed;
+  padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+}
+#confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
+#sky{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+.scene{position:relative;z-index:2;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;padding:4rem 1.25rem;gap:1rem}
+h2{font-family:var(--script);font-size:clamp(2.6rem,9vw,4.2rem);font-weight:400;color:var(--gold)}
+.small{font-size:1rem;opacity:.8;font-style:italic}
+.pulse{animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35;transform:scale(.96)}}
+
+/* gift */
+.gift{position:relative;width:150px;height:150px;border:0;background:none;cursor:pointer;margin:1.5rem 0;
+  animation:bob 2s ease-in-out infinite}
+.gift .box{position:absolute;bottom:0;left:10px;right:10px;height:100px;background:var(--rose);border-radius:6px}
+.gift .lid{position:absolute;top:18px;left:0;right:0;height:38px;background:#ff7da3;border-radius:6px;z-index:2;transform-origin:left bottom;transition:transform .6s}
+.gift .ribbon{position:absolute;top:18px;bottom:0;left:calc(50% - 10px);width:20px;background:var(--gold);z-index:3}
+.gift:hover .lid,.gift.open .lid{transform:translateY(-14px) rotate(-8deg)}
+.gift.open{animation:shake .5s}
+@keyframes bob{50%{transform:translateY(-12px)}}
+@keyframes shake{25%{transform:rotate(-8deg) scale(1.1)}75%{transform:rotate(8deg) scale(1.1)}}
+#gate.leave{animation:out .8s forwards}
+@keyframes out{to{opacity:0;transform:scale(1.4)}}
+
+/* hero */
+.hero h1{font-family:var(--script);font-weight:400;font-size:clamp(3.4rem,16vw,8rem);line-height:1.1;
+  background:linear-gradient(90deg,var(--gold),var(--rose),var(--gold));background-size:200% auto;
+  -webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 4s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+.caret{display:inline-block;width:3px;height:.8em;background:var(--gold);margin-left:4px;animation:blink .8s steps(1) infinite;vertical-align:middle}
+@keyframes blink{50%{opacity:0}}
+.big{font-size:clamp(1.4rem,5vw,2.2rem);letter-spacing:.08em;opacity:0;animation:fadeUp 1s 2.6s forwards}
+.wish{max-width:32ch;opacity:0;animation:fadeUp 1s 3.4s forwards}
+.down{margin-top:2rem;color:var(--gold);font-size:2rem;text-decoration:none;opacity:0;animation:fadeUp 1s 4.2s forwards,bob 1.6s 5s infinite}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+/* slider */
+.slider{position:relative;width:min(92vw,560px);overflow:hidden;border-radius:20px;border:3px solid var(--gold);
+  box-shadow:0 20px 60px rgba(0,0,0,.5);touch-action:pan-y}
+.track{display:flex;transition:transform .7s cubic-bezier(.65,0,.35,1)}
+figure{min-width:100%;position:relative;aspect-ratio:4/5;background:linear-gradient(160deg,var(--rose),var(--plum2))}
+figure img{width:100%;height:100%;object-fit:cover;display:block}
+figcaption{position:absolute;left:0;right:0;bottom:0;padding:2.5rem 1rem 1rem;font-style:italic;
+  background:linear-gradient(transparent,rgba(20,0,30,.85))}
+.nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;
+  background:rgba(255,246,236,.85);color:var(--plum);font-size:1.8rem;cursor:pointer;line-height:1}
+.prev{left:10px}.next{right:10px}
+.dots{font-style:italic;color:var(--gold);letter-spacing:.1em}
+
+/* letter */
+.letter{max-width:560px;text-align:left;background:var(--ivory);color:#3b1a3f;padding:2rem 1.6rem;border-radius:6px;
+  box-shadow:0 20px 50px rgba(0,0,0,.4);transform:rotate(-1deg);font-size:1.05rem}
+.letter p+p{margin-top:1rem}
+.sign{font-family:var(--script);font-size:1.9rem;line-height:1.3}
+
+/* cake */
+.cake{position:relative;width:240px;height:260px;margin:2rem 0 1rem}
+.tier{position:absolute;left:50%;transform:translateX(-50%);border-radius:14px 14px 8px 8px}
+.t1{bottom:20px;width:240px;height:90px;background:linear-gradient(var(--rose) 0 22px,#ffc2d6 22px)}
+.t2{bottom:110px;width:170px;height:70px;background:linear-gradient(var(--gold) 0 18px,#fff0c9 18px)}
+.plate{position:absolute;bottom:8px;left:-20px;right:-20px;height:14px;border-radius:50%;background:#e8d9ff}
+.candles{position:absolute;bottom:178px;left:50%;transform:translateX(-50%);display:flex;gap:14px;z-index:3}
+.candle{position:relative;width:12px;height:46px;border:0;background:repeating-linear-gradient(45deg,#fff,#fff 6px,var(--rose) 6px,var(--rose) 12px);border-radius:3px;cursor:pointer}
+.candle::before{content:"";position:absolute;inset:-12px -14px 0}
+.flame{position:absolute;left:50%;top:-24px;width:14px;height:24px;margin-left:-7px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;
+  background:radial-gradient(circle at 50% 70%,#fff3b0,#ffb03a 60%,transparent 72%);
+  box-shadow:0 0 18px 6px rgba(255,190,70,.6);animation:flick .15s infinite alternate;transition:opacity .3s,transform .3s}
+@keyframes flick{from{transform:scale(1) rotate(-3deg)}to{transform:scale(1.08,.95) rotate(3deg)}}
+.candle.out .flame{opacity:0;transform:scale(0)}
+.final{font-family:var(--script);font-size:clamp(2rem,7vw,3rem);color:var(--gold);animation:fadeUp 1s both}
+.again{padding:.7rem 1.6rem;border-radius:30px;border:2px solid var(--gold);background:none;color:var(--gold);font:inherit;cursor:pointer}
+.again:hover{background:var(--gold);color:var(--plum)}
+
+/* faint drifting background photos */
+#bgphotos{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.bgp{position:absolute;object-fit:cover;border-radius:12px;border:4px solid rgba(255,246,236,.5);
+  opacity:var(--op,.12);filter:blur(.6px) saturate(.9);
+  animation:drift var(--dur,40s) ease-in-out infinite alternate}
+@keyframes drift{
+  from{transform:translate(0,0) rotate(var(--r0,-6deg))}
+  to{transform:translate(var(--dx,60px),var(--dy,-80px)) rotate(var(--r1,6deg))}
+}
+
+/* floating balloons and hearts */
+.float{position:absolute;bottom:-120px;animation:rise linear forwards}
+.balloon{width:68px;height:86px;padding:5px;border-radius:50% 50% 48% 48%;position:relative;opacity:.95;
+  box-shadow:inset -6px -8px 14px rgba(0,0,0,.25),0 6px 18px rgba(0,0,0,.3)}
+.balloon img{display:block;width:100%;height:100%;object-fit:cover;border-radius:50% 50% 48% 48%}
+.balloon::before{content:"";position:absolute;left:50%;top:100%;margin-left:-5px;border:5px solid transparent;border-bottom-color:inherit;border-top:0;border-bottom-width:8px;border-bottom-color:rgba(255,255,255,.7)}
+.balloon::after{content:"";position:absolute;left:50%;top:calc(100% + 8px);width:1px;height:60px;background:rgba(255,255,255,.5)}
+@media (min-width:900px){.balloon{width:92px;height:116px}}
+@keyframes rise{to{transform:translateY(-130vh) translateX(var(--dx,30px)) rotate(var(--r,10deg))}}
+
+button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important;transition:none!important}}
+@media (min-width:900px){.scene{padding:5rem 3rem}}
+
+/* wish picker */
+.choices{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;width:min(92vw,620px)}
+@media (min-width:700px){.choices{grid-template-columns:repeat(4,1fr)}}
+.choice{padding:1rem .5rem;border-radius:16px;border:2px solid rgba(255,210,122,.6);background:rgba(255,246,236,.06);
+  color:var(--ivory);font:inherit;font-size:.95rem;cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.choice b{display:block;font-size:1.8rem;font-weight:400;margin-bottom:.2rem}
+.choice:hover{transform:translateY(-3px)}
+.choice.on{background:var(--gold);color:var(--plum);border-color:var(--gold);animation:pop .35s}
+@keyframes pop{50%{transform:scale(1.08)}}
+#note{width:min(92vw,620px);padding:.8rem 1rem;border-radius:14px;border:2px solid rgba(255,210,122,.5);
+  background:rgba(255,246,236,.08);color:var(--ivory);font:inherit;resize:vertical}
+#note::placeholder{color:rgba(255,246,236,.55)}
+.solid{background:var(--gold);color:var(--plum);font-weight:600;padding:.8rem 2rem}
+.solid:hover{background:var(--rose);color:#fff}
+.solid:disabled{opacity:.5;cursor:wait}
+.status{min-height:1.6em;font-style:italic;color:var(--gold)}
+
+/* wishes unlock only after every candle is blown out */
+.lockmsg{font-style:italic;color:var(--gold);min-height:1.6em}
+#wishScene .choices,#wishScene #note,#wishScene .solid{transition:opacity .6s,filter .6s}
+#wishScene.locked .choices,#wishScene.locked #note,#wishScene.locked .solid{opacity:.3;filter:grayscale(.7);pointer-events:none}
+#wishScene.unlocking .choices{animation:pop .6s}
+
+/* instant reply bubble */
+.chat{width:min(92vw,560px);text-align:left;display:flex;flex-direction:column;gap:.5rem}
+.bubble{max-width:90%;padding:.8rem 1.1rem;border-radius:18px 18px 18px 4px;background:var(--ivory);color:#3b1a3f;
+  box-shadow:0 8px 24px rgba(0,0,0,.35);animation:fadeUp .5s both}
+.bubble.who{font-size:.8rem;background:none;color:var(--gold);box-shadow:none;padding:0 .3rem;animation:none}
+.typing{display:inline-flex;gap:5px;padding:.9rem 1.1rem}
+.typing i{width:8px;height:8px;border-radius:50%;background:#b58ac0;animation:dotb 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes dotb{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-6px);opacity:1}}
